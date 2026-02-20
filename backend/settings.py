@@ -22,12 +22,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-mkv#i%d*rb5%&9($r2c=i%j*sij&ewvycohz5qyf!a1lvor&^9'
+from decouple import config
+
+SECRET_KEY = config("DJANGO_SECRET_KEY")
+DEBUG = config("DEBUG", default=False, cast=bool)
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]  # quick dev deploy
+
 
 TELEGRAM_BOT_TOKEN = config("TELEGRAM_BOT_TOKEN")
 TELEGRAM_CHAT_ID = config("TELEGRAM_CHAT_ID")
@@ -51,6 +56,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "corsheaders.middleware.CorsMiddleware",
     'django.middleware.security.SecurityMiddleware',
+     "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',

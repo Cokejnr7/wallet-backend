@@ -68,6 +68,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Vite
     "http://localhost:3000",  # Next/React
+    "https://guildbase.netlify.app/"
 ]
 
 ROOT_URLCONF = 'backend.urls'

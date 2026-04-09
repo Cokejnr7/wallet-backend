@@ -68,7 +68,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",  # Vite
     "http://localhost:3000",  # Next/React
-    "http://localhost:5500", #Live server
+    "https://xfiniity.netlify.app",
     "https://guildbase.netlify.app",
     "https://guiild.xyz"
 ]
